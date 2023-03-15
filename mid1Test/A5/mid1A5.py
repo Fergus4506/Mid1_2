@@ -1,9 +1,28 @@
 List=list(input())
+checkNumber=-1
+x=0
+while x!=len(List):
+    if x==0:
+        checkNumber=int(List[x])
+        x+=1
+    else:
+        if List[x]=="*" or List[x]=="/" or List[x]=="+" or List[x]=="-" or List[x]=="(" or List[x]==")":
+            checkNumber=-1
+            x+=1
+        elif checkNumber==-1:
+            checkNumber=int(List[x])
+            x+=1
+        else:
+            checkNumber=checkNumber*10+int(List[x])
+            List[x]=str(checkNumber)
+            List.pop(x-1)
+print(List)
 ICP={"(":4,"*":2,"/":2,"+":1,"-":1,")":0}
 ISP={"*":2,"/":2,"+":1,"-":1,")":0,"(":0}
 ans=[]
 temp=[]
 for i in range(len(List)):
+    print(List[i])
     if List[i]=="(":
         temp.append("(")
     elif List[i]==")":
