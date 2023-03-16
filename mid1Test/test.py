@@ -12,8 +12,7 @@ while True:
             j=round[i]
             while len(temp2)>=j:
                 for l in range(j):
-                    temp.append(temp2[0])
-                    temp2.pop(0)
+                    temp.append(temp2.pop(0))
                 temp.reverse()
                 for k in range(len(temp)):
                     ans.append(temp[k])
