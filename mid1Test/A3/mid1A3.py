@@ -6,6 +6,7 @@ while True:
     ans=0
     group=n//2
     temp.sort()
+    print(group)
     for i in range(group):
         if i+1==group:
             print(temp[i]+temp[n-i-1])
