@@ -10,12 +10,11 @@ while True:
 
         for i in range(1,len(round)):
             j=round[i]
-            while len(temp2)>j:
+            while len(temp2)>=j:
                 for l in range(j):
                     temp.append(temp2[0])
                     temp2.pop(0)
                 temp.reverse()
-                print(temp)
                 for k in range(len(temp)):
                     ans.append(temp[k])
                 temp.clear()
