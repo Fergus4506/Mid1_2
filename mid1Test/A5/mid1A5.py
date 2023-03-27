@@ -16,13 +16,13 @@ while x!=len(List):
             checkNumber=checkNumber*10+int(List[x])
             List[x]=str(checkNumber)
             List.pop(x-1)
-print(List)
+#print(List)
 ICP={"(":4,"*":2,"/":2,"+":1,"-":1,")":0}
 ISP={"*":2,"/":2,"+":1,"-":1,")":0,"(":0}
 ans=[]
 temp=[]
 for i in range(len(List)):
-    print(List[i])
+    #print(List[i])
     if List[i]=="(":
         temp.append("(")
     elif List[i]==")":
