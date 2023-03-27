@@ -1,17 +1,10 @@
-grid=[1]
-while True:
-    n=int(input())
-    if n==-1:
-        break
-    if n+1<=len(grid):
-        print(grid[n])
-    else:
-        for i in range(len(grid)-1,n):
-            temp=grid[i]
-            now=temp[0]
-            count=0
-            ans=""
-            for j in grid:
-                if j!=now:
-                    ans=ans+str(count)+now
-                    
+def checkOrder(proder,midorder):
+    if len(proder)==1:
+        print(proder[0])
+    now=midorder.index(proder[0])
+    checkOrder(proder[1:],)
+n=int(input())
+for i in range(n):
+    temp=input().split()
+    proder=temp[1]
+    midorder=temp[2]
