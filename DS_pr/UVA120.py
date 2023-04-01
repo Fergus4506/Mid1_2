@@ -1,3 +1,9 @@
+def checkMin(nc,temp):
+    maxN=temp[nc]
+    for i in range(nc,len(temp)):
+        if temp[i]>maxN:
+            maxN=temp[i]
+    return maxN
 while True:
     try:
         temp=list(map(int,input().split()))
@@ -12,10 +18,24 @@ while True:
                 maxN=temp[i]
             if temp[i]<minN:
                 minN=temp[i]  
-        alMax=maxN      
+        alMax=maxN    
+        rans=temp[:]
+        rans.sort(reverse=1)  
+        print(rans)
         temp.reverse()
         ans=[]
-        while temp[0]!=alMax or temp[len(temp)-1]!=minN:
+        while True:
+            check=True
+            for i in range(len(temp)):
+                if rans[i]!=temp[i]:
+                    check=False
+                    break
+            if check:
+                break
+            if temp[nc]==maxN:
+                nc+=1
+                maxN=checkMin(nc,temp)
+                continue
             if temp[len(temp)-1]==maxN:
                 t=temp[nc:]
                 t.reverse()
@@ -23,10 +43,7 @@ while True:
                     temp[i+nc]=t[i]
                 ans.append(nc+1)
                 nc+=1
-                maxN=temp[nc]
-                for i in range(nc,len(temp)):
-                    if temp[i]>maxN:
-                        maxN=temp[i]
+                maxN=checkMin(nc,temp)
             else: 
                 now=temp.index(maxN)
                 t=temp[now:]
@@ -34,6 +51,7 @@ while True:
                 t.reverse()
                 for i in range(len(t)):
                     temp[i+now]=t[i]
+            print(temp)
         ans.append(0)
         for i in range(len(ans)):
             if i+1==len(ans):
