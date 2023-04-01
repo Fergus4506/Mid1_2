@@ -21,7 +21,7 @@ while True:
         alMax=maxN    
         rans=temp[:]
         rans.sort(reverse=1)  
-        print(rans)
+        # print(rans)
         temp.reverse()
         ans=[]
         while True:
@@ -51,7 +51,7 @@ while True:
                 t.reverse()
                 for i in range(len(t)):
                     temp[i+now]=t[i]
-            print(temp)
+            # print(temp)
         ans.append(0)
         for i in range(len(ans)):
             if i+1==len(ans):
