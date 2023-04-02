@@ -19,7 +19,9 @@ while True:
                 if now==first and check:
                     now=last+1
                     if now>int(n[1]):
-                        now-=int(n[1])
+                        now=first%10
+                        if now==0:
+                            now=10
                     first=now
                     check=0
                     continue
@@ -31,7 +33,9 @@ while True:
                     last=now
                     now+=10
                 if now>int(n[1]):
-                    now-=int(n[1])
+                        now=first%10
+                        if now==0:
+                            now=10
                 # print(now)
                 count+=1
                 # if count==100:
