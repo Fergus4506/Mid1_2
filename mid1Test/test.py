@@ -1,83 +1,131 @@
-# grid=[]
-# ans=[]
-
-# def chk(k,now,temp,need,pl):
-    
-#     if pl>=k:
-#         return None
-
-#     if now>=k:
-#         t=0
-#         for i in need:
-#             t+=i    
-#         if t not in ans:
-#             ans.append(t)
-#     else:
-#         chk(k,now+1,temp,need,pl)
-#         for i in range(pl,len(temp)):
-#             pl=now+i
-#             need[now]=temp[pl]
-#             pu=need[:]
-#             chk(k,now+1,temp,pu,pl)
-
-# temp=list(map(int,input().split()))
-# n=temp[0]
-# k=temp[1]
-# temp=list(map(int,input().split()))
-# need=temp[:k]
-# chk(k,0,temp,need,k)
-# ans.sort()
-# a=0
-# for i in range(2,ans[len(ans)-1]+1):
-#     check=True
-#     for j in range(2,int(i**0.5)):
-#         if i%j==0:
-#             check=False
-#             break
-#     if check:
-#         grid.append(i)
-# for i in ans:
-#     if i in grid:
-#         a+=1
-# print(a)
-while 1:
+check = 1
+no = 1
+while True:
     try:
-        n,ppl=input().split()
-        day,month=map(int,n.split("/"))
-        ppl=int(ppl)
-        absent=list(map(int,input().split()))
-        att=[]
-        std=[]
-        last=0
-        repeat=day
-        add=day%10
-        current=day
-        status=-1
-        jjz=0
+        n, m = map(int, input().split())
+        if n == 0 and m == 0:
+            break
 
-        while len(att)<8:
-            if current>ppl:
-                if add==0:
-                    current=10
+        if check:
+            check = 0
+        else:
+            print()
+        field = []
+        for i in range(n):  # n*m的二維陣列
+            subchar = []
+            char = input()
+            for j in range(len(char)):
+                subchar.append(char[j])
+            field.append(subchar)
+
+        #print(field)確認資料是否正常存入
+
+        ansfield = []
+        for i in range(n):
+            temp = []
+            for j in range(m):
+                if field[i][j] != "*":
+                    count = 0
+                    #print("%d %d"%(i,j))確認哪一個點出問題
+                    if j == 0 and i == 0:  # 左上
+                        if field[i][j+1] == "*":
+                            count += 1
+                        if field[i+1][j] == "*":
+                            count += 1
+                        if field[i+1][j+1] == "*":
+                            count += 1
+                    elif j == 0 and i == n-1:  # 左下
+                        if field[i-1][j] == "*":
+                            count += 1
+                        if field[i-1][j+1] == "*":
+                            count += 1
+                        if field[i][j+1] == "*":
+                            count += 1
+                    elif j == m-1 and i == 0:  # 右上
+                        if field[i][j-1] == "*":
+                            count += 1
+                        if field[i+1][j] == "*":
+                            count += 1
+                        if field[i+1][j-1] == "*":
+                            count += 1
+                    elif j == m-1 and i == n-1:  # 右下
+                        if field[i-1][j] == "*":
+                            count += 1
+                        if field[i-1][j-1] == "*":
+                            count += 1
+                        if field[i][j-1] == "*":
+                            count += 1
+                    elif j == 0 and i != 0 and i != n-1:  # 第一行
+                        if field[i-1][j] == "*":
+                            count += 1
+                        if field[i-1][j+1] == "*":
+                            count += 1
+                        if field[i][j+1] == "*":
+                            count += 1
+                        if field[i+1][j] == "*":
+                            count += 1
+                        if field[i+1][j+1] == "*":
+                            count += 1
+                    elif j == m-1 and i != 0 and i != n-1:  # 最後一行
+                        if field[i-1][j-1] == "*":
+                            count += 1
+                        if field[i-1][j] == "*":
+                            count += 1
+                        if field[i][j-1] == "*":
+                            count += 1
+                        if field[i+1][j-1] == "*":
+                            count += 1
+                        if field[i+1][j] == "*":
+                            count += 1
+                    elif i == 0 and j != 0 and j != m-1:  # 第一列
+                        if field[i][j-1] == "*":
+                            count += 1
+                        if field[i][j+1] == "*":
+                            count += 1
+                        if field[i+1][j-1] == "*":
+                            count += 1
+                        if field[i+1][j] == "*":
+                            count += 1
+                        if field[i+1][j+1] == "*":
+                            count += 1
+                    elif i == n-1 and j != 0 and j != m-1:  # 最後一列
+                        if field[i-1][j-1] == "*":
+                            count += 1
+                        if field[i-1][j] == "*":
+                            count += 1
+                        if field[i-1][j+1] == "*":
+                            count += 1
+                        if field[i][j-1] == "*":
+                            count += 1
+                        if field[i][j+1] == "*":
+                            count += 1
+                    else:  # 其他地方
+                        if field[i-1][j-1] == "*":
+                            count += 1
+                        if field[i-1][j] == "*":
+                            count += 1
+                        if field[i-1][j+1] == "*":
+                            count += 1
+                        if field[i][j-1] == "*":
+                            count += 1
+                        if field[i][j+1] == "*":
+                            count += 1
+                        if field[i+1][j-1] == "*":
+                            count += 1
+                        if field[i+1][j] == "*":
+                            count += 1
+                        if field[i+1][j+1] == "*":
+                            count += 1
+                    temp.append(count)
                 else:
-                    current=add
-            while current in std:
-                if current>ppl:
-                    if add==0:
-                        current=10
-                    else:
-                        current=add
-                current=last+1
-                add=(add+1)%10
-            if current in absent:
-                jjz+=1
-            else:
-                att.append(current)
-            std.append(current)
-            last=current
-            current+=10
+                    temp.append("*")
+            ansfield.append(temp)
 
-        print(*att)
-        print("Li's angry number is %d"%jjz)    
+        print("Field #%d:" % (no))
+        for i in range(n):
+            for j in range(m-1):
+                print(ansfield[i][j], end="")
+            print(ansfield[i][m-1])
+        no += 1
     except EOFError:
         break

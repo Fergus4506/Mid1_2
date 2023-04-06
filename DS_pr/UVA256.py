@@ -2,15 +2,11 @@ while True:
     try:
         n=int(input())
         ans=[]
-        for i in range(10**n):
-            if int(i**0.5)**2!=i:
-                continue
-            else:
-                temp=i//(10**(n//2))+i%(10**(n//2))
-                # print(temp)
-                temp=temp**2
-                if temp==i:
-                    ans.append(temp)
+        for i in range(10**(n//2)):
+            temp1=i**2
+            temp2=temp1//10**(n//2)+temp1%10**(n//2)
+            if temp2==i:
+                ans.append(temp1)
         for i in ans:
             if n==2:
                 print("{:02d}".format(i))
