@@ -57,7 +57,7 @@
 # 					else:
 # 						initialX=subX
 # 						initialY=subY
-					
+
 # 		if check==1:
 # 			print("%d %d %s LOST"%(subX,subY,subside))
 # 		else:
@@ -65,7 +65,7 @@
 # 	except EOFError:
 # 		break
 
-#計算每個輸入出現的概率，並用name的ascii大小印出
+# 計算每個輸入出現的概率，並用name的ascii大小印出
 # while True:
 # 	try:
 # 		n=int(input())
@@ -99,29 +99,87 @@
 # 	except EOFError:
 # 		break
 
-#輸入一十進位數，計算其二進位和十六進位有多少個1
+# 輸入一十進位數，計算其二進位和十六進位有多少個1
+# while True:
+# 	try:
+# 		n=int(input())
+# 		for i in range(n):
+# 			m=int(input())
+# 			subm=m
+# 			bs=0
+# 			hm=0
+# 			count=0
+# 			while subm>0:
+# 				if subm%2==1:
+# 					count+=1
+# 				subm=subm//2
+# 			print(count,end=" ")
+# 			count=0
+# 			while m>0:
+# 				temp=m%10
+# 				while temp>0:
+# 					if temp%2==1:
+# 						count+=1
+# 					temp=temp//2
+# 				m=m//10
+# 			print(count)
+# 	except EOFError:
+# 		break
+
+# while True:
+#     try:
+#         case = int(input())
+#         for i in range(case):
+#             day = int(input())
+#             p = int(input())
+#             hartal = []
+#             for j in range(p):
+#                 h = int(input())
+#                 for k in range(1, day):
+#                     if h*k > day:
+#                         break
+#                     else:
+#                         hartal.append(h*k)
+#             count = 0
+
+#             temp = []
+#             for l in range(len(hartal)):
+#                 same = hartal.count(hartal[l])
+#                 if same > 1:
+#                     if hartal[l] not in temp:
+#                         temp.append(hartal[l])
+
+#             for a in temp:
+#                 if a % 7 != 0 and a % 7 != 6:
+#                     count += 1
+#             print(count)
+#     except EOFError:
+#         break
+
 while True:
 	try:
-		n=int(input())
-		for i in range(n):
-			m=int(input())
-			subm=m
-			bs=0
-			hm=0
+		case=int(input())
+		for i in range(case):
+			day=int(input())
+			p=int(input())
+			hartal=[]
+			for j in range(p):
+				h=int(input())
+				for k in range(1,day+1):
+					if h*k>day:
+						break
+					else:	
+						hartal.append(h*k)
 			count=0
-			while subm>0:
-				if subm%2==1:
+			temp=[]
+			for l in range(len(hartal)):
+				same=hartal.count(hartal[l])
+				if hartal[l] not in temp:
+					temp.append(hartal[l])
+					
+			for a in temp:
+				if a%7!=0 and a%7!=6:
 					count+=1
-				subm=subm//2
-			print(count,end=" ")
-			count=0
-			while m>0:
-				temp=m%10
-				while temp>0:
-					if temp%2==1:
-						count+=1
-					temp=temp//2
-				m=m//10
-			print(count)
+			print(count)	
 	except EOFError:
 		break
