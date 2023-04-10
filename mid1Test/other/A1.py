@@ -11,5 +11,4 @@
 # s=list(input())
 # change(s,0)
 
-n=input()
-print(len(s))
+i,num=1,16
