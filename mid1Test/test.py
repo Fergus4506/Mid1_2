@@ -66,35 +66,62 @@
 # 		break
 
 #計算每個輸入出現的概率，並用name的ascii大小印出
+# while True:
+# 	try:
+# 		n=int(input())
+# 		for k in range(n):
+# 			if k==0:#注意這該死的空格，只會輸入一次
+# 				space=input()
+# 			trees=[]
+# 			#print(space)
+# 			while True:
+# 				try:
+# 					tree=input()
+# 					if tree=="":
+# 						break
+# 					trees.append(tree)
+# 				except:
+# 					break
+# 			#print(trees)
+# 			ans=[]
+# 			temp=[]
+# 			for i in range(len(trees)):
+# 				if trees[i] not in temp:
+# 					temp.append(trees[i])
+# 					count=trees.count(trees[i])
+# 					ans.append([trees[i],count/len(trees)*100])
+# 			ans.sort(key=lambda ans:ans[0])
+# 			for i in range(len(ans)-1):
+# 				print("%s %.4f"%(ans[i][0],ans[i][1]))
+# 			print("%s %.4f"%(ans[-1][0],ans[-1][1]))
+# 			if k!=n-1:
+# 				print()
+# 	except EOFError:
+# 		break
+
+#輸入一十進位數，計算其二進位和十六進位有多少個1
 while True:
 	try:
 		n=int(input())
-		for k in range(n):
-			if k==0:#注意這該死的空格，只會輸入一次
-				space=input()
-			trees=[]
-			#print(space)
-			while True:
-				try:
-					tree=input()
-					if tree=="":
-						break
-					trees.append(tree)
-				except:
-					break
-			#print(trees)
-			ans=[]
-			temp=[]
-			for i in range(len(trees)):
-				if trees[i] not in temp:
-					temp.append(trees[i])
-					count=trees.count(trees[i])
-					ans.append([trees[i],count/len(trees)*100])
-			ans.sort(key=lambda ans:ans[0])
-			for i in range(len(ans)-1):
-				print("%s %.4f"%(ans[i][0],ans[i][1]))
-			print("%s %.4f"%(ans[-1][0],ans[-1][1]))
-			if k!=n-1:
-				print()
+		for i in range(n):
+			m=int(input())
+			subm=m
+			bs=0
+			hm=0
+			count=0
+			while subm>0:
+				if subm%2==1:
+					count+=1
+				subm=subm//2
+			print(count,end=" ")
+			count=0
+			while m>0:
+				temp=m%10
+				while temp>0:
+					if temp%2==1:
+						count+=1
+					temp=temp//2
+				m=m//10
+			print(count)
 	except EOFError:
 		break
