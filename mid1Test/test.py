@@ -168,3 +168,4 @@ while True:
         print(feyman(n))
     except:
         break
+#!/bin/bash
