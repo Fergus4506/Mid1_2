@@ -126,60 +126,46 @@
 # 	except EOFError:
 # 		break
 
+
 # while True:
-#     try:
-#         case = int(input())
-#         for i in range(case):
-#             day = int(input())
-#             p = int(input())
-#             hartal = []
-#             for j in range(p):
-#                 h = int(input())
-#                 for k in range(1, day):
-#                     if h*k > day:
-#                         break
-#                     else:
-#                         hartal.append(h*k)
-#             count = 0
+# 	try:
+# 		case=int(input())
+# 		for i in range(case):
+# 			day=int(input())
+# 			p=int(input())
+# 			hartal=[]
+# 			for j in range(p):
+# 				h=int(input())
+# 				for k in range(1,day+1):
+# 					if h*k>day:
+# 						break
+# 					else:	
+# 						hartal.append(h*k)
+# 			count=0
+# 			temp=[]
+# 			for l in range(len(hartal)):
+# 				same=hartal.count(hartal[l])
+# 				if hartal[l] not in temp:
+# 					temp.append(hartal[l])
+                    
+# 			for a in temp:
+# 				if a%7!=0 and a%7!=6:
+# 					count+=1
+# 			print(count)	
+# 	except EOFError:
+# 		break
 
-#             temp = []
-#             for l in range(len(hartal)):
-#                 same = hartal.count(hartal[l])
-#                 if same > 1:
-#                     if hartal[l] not in temp:
-#                         temp.append(hartal[l])
-
-#             for a in temp:
-#                 if a % 7 != 0 and a % 7 != 6:
-#                     count += 1
-#             print(count)
-#     except EOFError:
-#         break
-
+def feyman(num):
+    if num==1:
+        return 1
+    else:
+        return num*num+feyman(num-1)
 while True:
-	try:
-		case=int(input())
-		for i in range(case):
-			day=int(input())
-			p=int(input())
-			hartal=[]
-			for j in range(p):
-				h=int(input())
-				for k in range(1,day+1):
-					if h*k>day:
-						break
-					else:	
-						hartal.append(h*k)
-			count=0
-			temp=[]
-			for l in range(len(hartal)):
-				same=hartal.count(hartal[l])
-				if hartal[l] not in temp:
-					temp.append(hartal[l])
-					
-			for a in temp:
-				if a%7!=0 and a%7!=6:
-					count+=1
-			print(count)	
-	except EOFError:
-		break
+    try:
+        n=int(input())
+        if n==0:
+            break
+        print(feyman(n))
+    except:
+        break
+#!/bin/bash
