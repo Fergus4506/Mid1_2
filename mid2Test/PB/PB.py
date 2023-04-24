@@ -6,7 +6,7 @@ while True:
         gf=list(map(int,input().split()))
         gf.sort()
         i,j,ans=0,0,0
-        while i<len(goodP):
+        while i<len(goodP) and j<len(gf):
             if goodP[i]>=gf[j]:
                 ans+=goodP[i]
                 j+=1
