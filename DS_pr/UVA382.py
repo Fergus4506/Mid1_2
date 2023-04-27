@@ -27,4 +27,3 @@ while True:
     if check:
         print("END OF OUTPUT")
         break
-    #111
