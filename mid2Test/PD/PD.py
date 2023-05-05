@@ -1,4 +1,3 @@
-import math
 while True:
     try:
         n=int(input())
