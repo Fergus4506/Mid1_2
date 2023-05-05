@@ -15,12 +15,12 @@ while True:
                         t=t+n[j]
                 temp.append(t)
                 temp.sort()
-                t=""
-                for j in range(le//i):
-                    t=t+temp[j]
-                if t!=n:
-                    print(t)
-                    count=1
+                print(*temp)
+                # for j in range(le//i):
+                #     t=t+temp[j]
+                # if t!=n:
+                #     print(t)
+                #     count=1
         if count==0:
             print("orz")
     except EOFError:
