@@ -1,1 +1,1 @@
-print(pos)
+count=0
