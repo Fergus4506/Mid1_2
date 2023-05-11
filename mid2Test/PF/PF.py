@@ -1,3 +1,4 @@
+
 def l(index,res,grid):
     if res==None:
         res=[]
@@ -26,7 +27,6 @@ while True:
         
         print(max(ans))
                 
-        
         
     except EOFError:
         break

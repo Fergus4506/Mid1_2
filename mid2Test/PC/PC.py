@@ -2,6 +2,7 @@ while True:
     try:
         std = list(map(int, input().split()))
         grid = list(map(int, input().split()))
+
         inser = grid[:]
         print(1)
         for i in range(std[1]):
@@ -17,6 +18,7 @@ while True:
                 else:
                     print(inser[j], end=" ")
             print()
+
         print(2)
         bb = grid[:]
         for i in range(std[1]):
@@ -30,6 +32,7 @@ while True:
                 else:
                     print(bb[j], end=" ")
             print()
+            
         print(3)
         sl = grid[:]
         for i in range(std[1]):

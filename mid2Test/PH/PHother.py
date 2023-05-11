@@ -1,3 +1,4 @@
+
 def checkPaste(height):
     # 計算可以被貼的區段
     postLen = []
