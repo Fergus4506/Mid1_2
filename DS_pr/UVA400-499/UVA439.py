@@ -1,4 +1,3 @@
-
 while True:
     try:
         st,ed=input().split()
