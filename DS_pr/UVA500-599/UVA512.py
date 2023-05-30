@@ -1,6 +1,7 @@
 count=1
 while True:
     try:
+        error=0
         check=0
         if count>1:
             b=input()
@@ -35,12 +36,16 @@ while True:
                 for j in range(int(com[1])):
                     grid.pop(int(com[j+2])-1-ct)
                     ct+=1
+                    r-=1
             elif com[0]=="DC":
-                ct=0
-                for j in range(int(com[1])):
-                    for z in range(len(grid)):
-                        grid[z].pop(int(com[j+2])-1-ct)
-                    ct+=1
+                try:
+                    ct=0
+                    for j in range(int(com[1])-1,-1,-1):
+                        for z in range(len(grid)):
+                            grid[z].pop(int(com[j+2])-1)
+                except:
+                    error=1
+                    break
             elif com[0]=="IR":
                 ct=0
                 for j in range(int(com[1])):
@@ -54,7 +59,9 @@ while True:
                         grid[z].insert(int(com[j+2])-1+ct,"-1")
                     ct+=1
             elif com[0]=="EX":
-                grid[int(com[1])-1][int(com[2])-1],grid[int(com[3])-1][int(com[4])-1]=grid[int(com[3])-1][int(com[4])-1],grid[int(com[1])-1][int(com[2])-1]
+                grid[int(com[1])-1][int(com[2])-1],grid[int(com[3])-1][int(com[4])-1]=grid[int(com[3])-1][int(com[4])-1],grid[int(com[1])-1][int(com[2])-1]           
+        if error:
+            break
         n2=int(input())
         for i in range(n2):
             y,x=map(int,input().split())
