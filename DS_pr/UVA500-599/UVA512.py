@@ -38,14 +38,10 @@ while True:
                     ct+=1
                     r-=1
             elif com[0]=="DC":
-                try:
-                    ct=0
-                    for j in range(int(com[1])-1,-1,-1):
-                        for z in range(len(grid)):
-                            grid[z].pop(int(com[j+2])-1)
-                except:
-                    error=1
-                    break
+                ct=0
+                for j in range(int(com[1])-1,-1,-1):
+                    for z in range(len(grid)):
+                        grid[z].pop(int(com[j+2])-1)
             elif com[0]=="IR":
                 ct=0
                 for j in range(int(com[1])):
