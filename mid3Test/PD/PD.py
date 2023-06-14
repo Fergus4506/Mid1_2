@@ -28,7 +28,7 @@ def crht(grid):
 #編碼的部分
 #編碼的部分比較簡單，因為只需找尋對應英文字母的對應密碼值
 #再將全部接再一起就好了
-def incode(case,grid):
+def encode(case,grid):
     # print(grid)
     ans=""
     for i in range(len(case)):
@@ -72,6 +72,6 @@ while True:
                 print(decode(case,incodeForm))
             else:
                 pass
-                print(incode(case,incodeForm))
+                print(encode(case,incodeForm))
     except EOFError:
         break
