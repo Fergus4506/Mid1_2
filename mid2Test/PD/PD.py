@@ -24,6 +24,7 @@ while True:
                 check=0
                 if back==1:
                     back=0
+            print(deep)
             #print(deep)
         if deep>max:
             max=deep
