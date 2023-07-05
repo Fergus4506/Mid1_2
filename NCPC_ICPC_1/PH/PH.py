@@ -7,11 +7,15 @@ for i in range(m):
     #grid[t[1]-1].append([t[0]-1,color])
     color=(color+1)%2
 
-print(grid)
+# print(grid)
+
+#BFS走訪後找最短路徑長，並考慮該最短路徑長能符合的最大顏色變化
+#換句話說只需考慮在有多少邊就好了，算出有多少邊長後直接減 1 就是正確答案了
 
 queue=[]
-queue.append([0,-1,0,"0"])
+queue.append([0,0,1,"0"])
 maxchange=0
+check=0
 while len(queue):
     now=queue.pop(0)
     lastcolor=now[1]
@@ -21,27 +25,34 @@ while len(queue):
         if str(grid[now[0]][i][0]) in nowpass:
             continue
         elif grid[now[0]][i][0]==n-1:
-            print(*now)
-            if lastcolor!=grid[now[0]][i][1]:
-                if now[2]+1>maxchange:
-                    maxchange=now[2]+1
-            else:
-                if now[2]>maxchange:
-                    maxchange=now[2]
-            continue
-        print(now)
-        print(grid[now[0]])
+            # print(now)
+            print(now[2]-1)
+            check=1
+            break
+            # print(*now)
+            # if lastcolor!=grid[now[0]][i][1]:
+            #     if now[2]+1>maxchange:
+            #         maxchange=now[2]+1
+            # else:
+            #     if now[2]>maxchange:
+            #         maxchange=now[2]
+            # continue
+        # print(now)
+        # print(grid[now[0]])
         nowpass.append(str(grid[now[0]][i][0]))
-        if lastcolor==-1:
-            t=[grid[now[0]][i][0],grid[now[0]][i][1],0]+nowpass
-            queue.append(t)
-        elif lastcolor!=grid[now[0]][i][1]:
-            print("@")
-            t=[grid[now[0]][i][0],grid[now[0]][i][1],now[2]+1]+nowpass
-            queue.append(t)
-        else:
-            t=[grid[now[0]][i][0],grid[now[0]][i][1],now[2]]+nowpass
-            queue.append(t)
-
-    print(maxchange)
+        t=[grid[now[0]][i][0],grid[now[0]][i][1],now[2]+1]+nowpass
+        queue.append(t)
+        # if lastcolor==-1:
+        #     t=[grid[now[0]][i][0],grid[now[0]][i][1],0]+nowpass
+        #     queue.append(t)
+        # elif lastcolor!=grid[now[0]][i][1]:
+        #     print("@")
+        #     t=[grid[now[0]][i][0],grid[now[0]][i][1],now[2]+1]+nowpass
+        #     queue.append(t)
+        # else:
+        #     t=[grid[now[0]][i][0],grid[now[0]][i][1],now[2]]+nowpass
+        #     queue.append(t)
+    if check:
+        break
+    # print(maxchange)
     #break
