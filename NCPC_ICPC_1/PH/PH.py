@@ -18,17 +18,19 @@ def main():
     #並且要注意因為這題為無向圖所以不能讓他跑進迴圈中，當判斷到要準備跑到以跑過的節點時就要忽略該資料
     queue=[]
     queue.append(0)
-    np=[]
+    np=[]#紀錄走過的節點
     ans=1
     check=0
     while len(queue):
-        zz=queue
+        zz=queue#該層資料
         for x in range(len(zz)):
             now=zz.pop(0)
+
+            #去抓這層queue中的第一筆資料並去判斷牠的子節點是否符合條件
             for i in range(len(grid[now])):
-                if grid[now][i] in np:
+                if grid[now][i] in np:#子節點已走過則忽略
                     continue
-                elif grid[now][i]==n-1:
+                elif grid[now][i]==n-1:#該子節點為終點，輸出答案並跳出迴圈
                     # print(now)
                     print(ans-1)
                     check=1

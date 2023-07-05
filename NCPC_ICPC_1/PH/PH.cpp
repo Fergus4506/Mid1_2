@@ -23,13 +23,15 @@ void solve()
         AL[b].push_back(a);
     }
     vector<int> q{0};
-    vector<bool> seen(n, false);
+    vector<bool> seen(n, false);//紀錄走過的節點
     seen[0] = true;
     int shortestPath = 0;
     while(q.size()){
+
+        //去抓這層queue中的第一筆資料並去判斷牠的子節點是否符合條件
         vector<int> nq;
         for(int cur: q){
-            if(cur == n-1){
+            if(cur == n-1){//該子節點為終點，輸出答案並跳出迴圈
                 cout << shortestPath-1;
                 return;
             }
@@ -40,6 +42,7 @@ void solve()
                 }
             }
         }
+        //該層做完後更新資料
         shortestPath++;
         q = nq;
     }
