@@ -59,16 +59,20 @@ def checkfun(now,checkN,ans,l):
             if len(t)==l and int(t[0])**2==int(ans[len(ans)-1]) and check:
                 return t
         return "0"
-
-inp=input()
-n=inp[::-1]
-if len(n)%2==0:
-    print(-1)
-else:
-    legth=(len(n)+1)//2
-    In=int(n)
-    check=0
-    print(checkfun(0,"",n,legth))
+while 1:
+    try:
+        check=0
+        inp=input()
+        n=inp[::-1]
+        if len(n)%2==0:
+            print(-1)
+        else:
+            legth=(len(n)+1)//2
+            In=int(n)
+            check=0
+            print(checkfun(0,"",n,legth))
+    except EOFError:
+        break
 
     # start=1
     # end=9
