@@ -4,13 +4,11 @@ color=0
 for i in range(m):
     t=list(map(int,input().split()))
     grid[t[0]-1].append([t[1]-1,color])
-    #grid[t[1]-1].append([t[0]-1,color])
+    grid[t[1]-1].append([t[0]-1,color])
     color=(color+1)%2
 
 # print(grid)
 
-#BFS走訪後找最短路徑長，並考慮該最短路徑長能符合的最大顏色變化
-#換句話說只需考慮在有多少邊就好了，算出有多少邊長後直接減 1 就是正確答案了
 
 queue=[]
 queue.append([0,0,1,"0"])
