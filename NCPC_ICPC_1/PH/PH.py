@@ -8,23 +8,29 @@ for i in range(m):
     color=(color+1)%2
 
 # print(grid)
+
+
 queue=[]
-queue.append([0,1,"0"])
+queue.append(0)
+np=[]
+ans=1
 check=0
 while len(queue):
-    now=queue.pop(0)
-    lastpass=now[2:]
-    for i in range(len(grid[now[0]])):
-        nowpass=lastpass[:]
-        if str(grid[now[0]][i]) in nowpass:
-            continue
-        elif grid[now[0]][i]==n-1:
-            # print(now)
-            print(now[1]-1)
-            check=1
+    zz=queue
+    for x in range(len(zz)):
+        now=zz.pop(0)
+        for i in range(len(grid[now])):
+            if grid[now][i] in np:
+                continue
+            elif grid[now][i]==n-1:
+                # print(now)
+                print(ans-1)
+                check=1
+                break
+            np.append(grid[now][i])
+            queue.append(grid[now][i])
+        if check:
             break
-        nowpass.append(str(grid[now[0]][i]))
-        t=[grid[now[0]][i],now[1]+1]+nowpass
-        queue.append(t)
+    ans+=1
     if check:
         break
