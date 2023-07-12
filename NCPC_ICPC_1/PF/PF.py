@@ -1,4 +1,5 @@
 n=int(input())
+count=2
 allAnimal=[]
 for i in range(n):
     allAnimal.append(int(input()))
@@ -10,6 +11,15 @@ while minN!=maxN:
         leght+=1
         minN+=allAnimal[leght]
     elif minN>maxN:
-        right+=1
+        right-=1
         maxN+=allAnimal[right]
-print(allAnimal[leght]+1)
+    count+=1
+
+# print(allAnimal[leght],allAnimal[right])
+if leght+1==right:
+    if leght==0 and right==len(allAnimal)-1:
+        print(allAnimal[leght])
+    else:
+        print(allAnimal[leght]+1)
+else:
+    print(allAnimal[leght+1])
