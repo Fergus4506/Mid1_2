@@ -1,43 +1,49 @@
-#include <iostream>
-#include <algorithm>
+#include<bits/stdc++.h>
 using namespace std;
 
-struct List{
-	int num;
-	int mod;
-	int Even_Odd;
+struct sp{
+	int ts;
+	int m_mod;
+	int odd_even;
 };
 
-List list[10000];
-
-bool cmp(List a,List b){
-	if(a.mod==b.mod){
-		if(a.Even_Odd==1 && b.Even_Odd==1)
-			return a.num>b.num;
-		else if(a.Even_Odd==0 && b.Even_Odd==0)
-			return a.num<b.num;
+bool cmp(sp a,sp b){//sort return false才會交換
+	if(a.m_mod==b.m_mod){
+		if(a.odd_even!=b.odd_even)
+			return a.odd_even>b.odd_even;
+		else if(a.odd_even==1 && b.odd_even==1)
+			return a.ts>b.ts;
 		else
-			return a.Even_Odd>b.Even_Odd;
-	}else
-		return a.mod<b.mod;
-	
-};
+			return a.ts<b.ts;
+	}else{
+		return a.m_mod<b.m_mod;
+	}
+
+}
 
 int main(){
-    int N,M;
-	while(cin>>N>>M){
-		cout<<N<<" "<<M<<endl;
-		if(N==0 && M==0)break;
-		for(int i=0;i<N;i++){
-			cin>>list[i].num;
-			list[i].mod=(list[i].num)%M;
-			list[i].Even_Odd=list[i].num%2;
+	int n,m;
+	while(1){
+		cin>>n>>m;
+		cout<<n<<" "<<m<<endl;
+		if(n==0 && m==0)
+			break;
+		vector<sp> list;
+		for(int i=0;i<n;i++){
+			sp temp;
+			cin>>temp.ts;
+			temp.m_mod=temp.ts%m;
+			temp.odd_even=abs(temp.ts%2);
+			list.push_back(temp);
 		}
-		sort(list,list+N,cmp);
-		for(int i=0;i<N;i++){
-			cout<<list[i].num<<endl;
+		sort(list.begin(),list.end(),cmp);
+
+		for(int i=0;i<n;i++){
+			cout<<list[i].ts<<endl;
 		}
-		     
+		
 	}
+	
+	
 	return 0;
 }
