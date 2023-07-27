@@ -60,12 +60,13 @@ def check(grid,end,now):
             return grid[0][1]
         else:
             return -1
-
     return 0
+
+
 def DFS(end,color,grid):
     global ans
-    for i in range(4):
-        for j in range(4):
+    for i in range(3):
+        for j in range(3):
             if grid[i][j]==0:
                 grid[i][j]=color
                 now=[i,j]
@@ -73,7 +74,7 @@ def DFS(end,color,grid):
                 if ck==2:
                     ans+=1
                 elif ck==0:
-                    DFS(end,(color+1)%2+1,grid)
+                    DFS(end,(color)%2+1,grid)
                 grid[i][j]=0
         print(grid,ans)
         
@@ -81,7 +82,7 @@ def DFS(end,color,grid):
 start=[1,int(input())]
 end=list(map(int,input().split()))
 grid=[[0]*4 for i in range(4)]
-grid[start[0]][start[1]]=1
+grid[start[0]-1][start[1]-1]=1
 DFS(end,2,grid)
 print(ans)
 
