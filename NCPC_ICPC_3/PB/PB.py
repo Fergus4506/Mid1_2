@@ -1,5 +1,8 @@
 ans=0
+count=0
+allgrid=[]
 def check(grid,end,now):
+    print(grid)
     Jlast,Jcount=-1,0
     Hlast,Hcount=-1,0
     for i in range(4):
@@ -19,7 +22,7 @@ def check(grid,end,now):
                 return Jlast
             elif Hcount==3:
                 return Hlast
-    print("@")
+    # print("@")
     if grid[2][0]==grid[1][1]==grid[0][2]!=0:
         if now[0]==end[0] and now[1]==end[1]:
             return grid[2][0]
@@ -62,21 +65,43 @@ def check(grid,end,now):
             return -1
     return 0
 
+def same(grid):
+    push=0
+    for i in range(4):
+        temp=0
+        for j in range(4):
+            temp=temp*10+grid[i][j]
+        push=push*10**4+temp
+    if push not in allgrid:
+        allgrid.append(push)
+        return 0
+    else:
+        print("@")
+        return 1
+
 
 def DFS(end,color,grid):
     global ans
-    for i in range(3):
-        for j in range(3):
+    global count
+    # if count==1000:
+    #     return None
+    for i in range(4):
+        for j in range(4):
             if grid[i][j]==0:
                 grid[i][j]=color
+                if same(grid):
+                    grid[i][j]=0
+                    continue
                 now=[i,j]
                 ck=check(grid,end,now)
+                # if count==100:
+                #     return None
                 if ck==2:
                     ans+=1
                 elif ck==0:
                     DFS(end,(color)%2+1,grid)
                 grid[i][j]=0
-        print(grid,ans)
+        print(ans)
         
 
 start=[1,int(input())]
