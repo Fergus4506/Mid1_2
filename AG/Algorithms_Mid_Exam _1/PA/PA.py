@@ -6,20 +6,18 @@ def mgSort(grid):
     mid=len(grid)//2
     left=mgSort(grid[:mid])
     right=mgSort(grid[mid:])
-    temp=left+right
-    print(temp)
+    # print(left)
+    # print(right)
+    temp=[]
+    while len(left) and len(right):
+        if (left[0][0] <= right[0][0]):
+            temp.append(left.pop(0))
+        else:
+            temp.append(right.pop(0))
+            change+=len(left)
+            
 
-    #切割合併後sort的迴圈(取最小值放到最前面)
-    for i in range(len(temp)):
-        nowMin=temp[i][0]
-        Minpos=i
-        for j in range(i+1,len(temp)):
-            if temp[j][0]<nowMin:
-                Minpos=j
-                nowMin=temp[j][0]
-        if i!=Minpos:
-            change+=1
-            temp[i],temp[Minpos]=temp[Minpos],temp[i]
+    temp = temp+left if len(left) else temp+right
     # print(temp)
     return temp
         
