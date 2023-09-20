@@ -1,0 +1,1 @@
+while left!=m and right!=-1:
