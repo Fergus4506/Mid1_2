@@ -1,5 +1,9 @@
 import queue
 import math
+import time
+start_time = time.time()
+# 執行一些程式碼
+
 
 def spfa(grid,start):
     myQueue=[start-1]
@@ -41,3 +45,6 @@ while 1:
         print("Case %d: The longest path from %d has length %d, finishing at %d."%(count,st,ans,start))
     else:
         print("Case %d: The longest path from %d has length %d, finishing at %d."%(count,st,ans,pos+1))
+end_time = time.time()
+execution_time = end_time - start_time
+print(execution_time,"s")

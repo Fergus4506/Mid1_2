@@ -1,3 +1,5 @@
+import time
+start_time = time.time()
 max=0
 endPoint=0
 
@@ -37,4 +39,6 @@ while 1:
     else:
         print("Case %d: The longest path from %d has length %d, finishing at %d."%(count,s,max,s))
     print()
-    
+end_time = time.time()
+execution_time = end_time - start_time
+print(execution_time,"s")
