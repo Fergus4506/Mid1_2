@@ -1,0 +1,1 @@
+grid[temp[1]].append(temp[0])

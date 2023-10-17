@@ -8,7 +8,9 @@ def l(index,res,grid):
         return res
     res.append(grid[index])
     res=l((index+1)*2-1,res,grid)
+    # print(res)
     res=l((index+1)*2,res,grid)
+    # print(res)
     return res
     
 while True:
@@ -22,6 +24,7 @@ while True:
                 total+=int(x)
         for i in range(1,len(grid)):
             res.append(sum(list(map(int,(l(i,None,grid))))))
+            # print(res)
         for i in res:
             ans.append((total-i)*i)
         

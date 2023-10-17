@@ -22,7 +22,7 @@ def crht(grid):
                     temp-=1
                 temp=temp//2
             ans.append([grid[i],pt])
-            # print(pt)
+            print(ans)
     return ans
 
 #編碼的部分
