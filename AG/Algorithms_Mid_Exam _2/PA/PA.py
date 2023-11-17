@@ -6,21 +6,19 @@ while 1:
         mGrid.sort()
         nGrid.sort()
         ans=0
-        for i in range(m):
-            if mGrid[i]>k:
-                for j in range(n):
-                    if mGrid[i]+nGrid[j]==k:
-                        ans+=1
-                        break
-                    if mGrid[i]+nGrid[j]>k:
-                        break
-            else:
-                for j in range(n-1,-1,-1):
-                    if mGrid[i]+nGrid[j]==k:
-                        ans+=1
-                        break
-                    if mGrid[i]+nGrid[j]<k:
-                        break
+        ms=0
+        ns=n-1
+        while 1:
+            if mGrid[ms]+nGrid[ns]==k:
+                ans+=1
+                ms+=1
+                ns-=1
+            elif mGrid[ms]+nGrid[ns]>k:
+                ns-=1
+            elif mGrid[ms]+nGrid[ns]<k:
+                ms+=1
+            if ms==m or ns<0:
+                break
         print(ans)
     except EOFError:
         break
