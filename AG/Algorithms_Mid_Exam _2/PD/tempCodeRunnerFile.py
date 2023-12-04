@@ -1,1 +1,2 @@
-print("@")
+
+            if(grid[gn]==check[i]):
