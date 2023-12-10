@@ -3,7 +3,11 @@
         "algorithm": "cpp",
         "iostream": "cpp",
         "ostream": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "vector": "cpp",
+        "iterator": "cpp",
+        "xmemory": "cpp",
+        "xutility": "cpp"
     },
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter"
