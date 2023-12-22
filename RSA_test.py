@@ -3,6 +3,8 @@
 #其中的S也就是下面變數的X1=>也就是算到最後對於a的反元素
 def mod_inverse(a, b):
     m0, x0, x1 = b, 0, 1
+    # if(a>b):
+    #     a,b
     while a > 1:
         q = a // b
         b, a = a % b, b
