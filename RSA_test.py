@@ -55,8 +55,6 @@ def decrypt(enGrid, d, n):
             de_ms += " "
         else:
             de_ms += chr(deGrid[i] %100 + ord('A'))
-        
-    
     return de_ms
 
 def main():
