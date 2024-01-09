@@ -37,12 +37,14 @@ def encrypt(ms, e, n):
             ct=0
         else:
             t1=char_value
-    print("M =",*chrGrid)
+    print(chrGrid)
     enGrid = [(pow(char, e, n)) for char in chrGrid]
+    print(enGrid)
     return enGrid
 
 def decrypt(enGrid, d, n):
     deGrid = [(pow(char, d, n)) for char in enGrid]
+    print(deGrid)
     de_ms = ""
     for i in range(0, len(deGrid)):
         if deGrid[i]//100== 26:
@@ -54,23 +56,24 @@ def decrypt(enGrid, d, n):
         else:
             de_ms += chr(deGrid[i] %100 + ord('A'))
         
-    #print(de_ms)
+    
     return de_ms
 
 def main():
-    e = int(input("請輸入e:"))
-    p = int(input("請輸入p:"))
-    q = int(input("請輸入q:"))
+    e = int(input(""))
+    p = int(input(""))
+    q = int(input(""))
 
     n, d = find_n_and_d(p, q, e)
+    print(f"(n, e): ({n}, {e})")
     print(f"(n, d): ({n}, {d})")
 
-    ms = input("請輸入所要加密之文字:")
+    ms = input()
     en_ms = encrypt(ms.upper(), e, n)
-    print("C =", *en_ms)
+    print("encryption:", en_ms)
 
     de_ms = decrypt(en_ms, d, n)
-    print("解碼後:", de_ms)
+    print("decryption:", de_ms)
 
 if __name__ == "__main__":
     main()
