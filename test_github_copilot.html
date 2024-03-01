@@ -1,0 +1,78 @@
+<!--給我一個簡易的日曆網站，並且可以顯示現在的年月日，現在的年月日使用javascrpit來做輔助，並在日曆中標記出今日-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>日曆</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 5px;
+            text-align: center;
+        }
+        th {
+            background-color: #f0f0f0;
+        }
+        .today {
+            background-color: #ff0;
+        }
+    </style>
+</head>
+<body>
+    <h1>日曆</h1>
+    <p id="date"></p>
+    <table>
+        <thead>
+            <tr>
+                <th>日</th>
+                <th>一</th>
+                <th>二</th>
+                <th>三</th>
+                <th>四</th>
+                <th>五</th>
+                <th>六</th>
+            </tr>
+        </thead>
+        <tbody id="calendar"></tbody>
+    </table>
+    <script>
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var day = date.getDate();
+        var today = year + '-' + month + '-' + day;
+        var calendar = document.getElementById('calendar');
+        var dateElement = document.getElementById('date');
+        dateElement.textContent = year + '年' + month + '月' + day + '日';
+        var days = new Date(year, month, 0).getDate();
+        var firstDay = new Date(year, month - 1, 1).getDay();
+        var lastDay = new Date(year, month, 0).getDay();
+        var dayCount = 1;
+        var tr = document.createElement('tr');
+        for (var i = 0; i < firstDay; i++) {
+            var td = document.createElement('td');
+            tr.appendChild(td);
+        }
+        for (var i = 1; i <= days; i++) {
+            var td = document.createElement('td');
+            td.textContent = i;
+            if (year + '-' + month + '-' + i === today) {
+                td.classList.add('today');
+            }
+            tr.appendChild(td);
+            if ((firstDay + i) % 7 === 0) {
+                calendar.appendChild(tr);
+                tr = document.createElement('tr');
+            }
+        }
+        for (var i = lastDay; i < 6; i++) {
+            var td = document.createElement('td');
+            tr.appendChild(td);
+        }
+        calendar.appendChild(tr);
+    </script>
+</body>
+</html>
