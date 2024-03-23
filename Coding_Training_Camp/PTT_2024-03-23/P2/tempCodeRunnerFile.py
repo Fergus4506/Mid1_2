@@ -1,0 +1,1 @@
+print(j,sum([int(k) for k in str(j)])+j)
