@@ -11,7 +11,8 @@
         "istream": "cpp",
         "deque": "cpp",
         "format": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "string": "cpp"
     },
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter"
